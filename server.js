@@ -7,7 +7,7 @@ const WatsonAuth = require('watson-developer-cloud/authorization/v1');
 
 // Variables REST related
 //var http = require("http");
-var https = require("https");
+var https = require('https');
 var cors = require('cors');
 var request = require('request');
 
@@ -22,6 +22,7 @@ var theMethode = 'GET';
 var theHost = 'gateway.watsonplatform.net';
 var theProtocoll='https://';
 var thePath = wcs_action_url + wcs_version_date;
+// Build Path for Watson Conversation REST command
 var thePath_URL = theProtocoll + theHost + wcs_action_url + wcs_version_date;
 var thePort = 8080;
 
@@ -53,15 +54,20 @@ app.post('/api/token', (req, res) => {
       return res.status(500).send(err.message || err);
     }
     // note: tokens are percent-encoded already and must not be double-encoded
+    // Store the token in a globle varibale for reuse in /api/usetoken
     token_to_use = token;
     res.send(token);
     });
 });
 
-app.get('/api/usetoken', (req, res) => {
+// Information Sources:
+// ====================
 // https://watson-api-explorer.mybluemix.net/apis/conversation-v1
 // https://www.ibm.com/watson/developercloud/conversation/api/v1/?curl#workspaces
 // Sample Conversation Post: https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2017-05-26
+
+// This function is a sample how to use the Watson REST API and the Token in javascript.
+app.get('/api/usetoken', (req, res) => {
 
   var options = {
     url: thePath_URL,
@@ -83,6 +89,7 @@ app.get('/api/usetoken', (req, res) => {
   request(options, callback);
 });
 
+// This function is a sample how to use the REST API javascript.
 app.get('/api/country', (req, res) => {
 
   console.log("**** Test REST CALL - GET Country *****");
