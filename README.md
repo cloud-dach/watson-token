@@ -2,7 +2,7 @@
 
 Basic Node.js server with a form that accepts a service's credentials and URL and returns an [auth token](https://www.ibm.com/watson/developercloud/doc/common/getting-started-tokens.html).
 
-May be run from IBM Cloud, a Raspberry Pi, etc. Automatically redirects to HTTPS when running on Bluemix.
+May be run from IBM Cloud, a Raspberry Pi, etc. Automatically redirects to HTTPS when running on IBM Cloud.
 In this sample the **Watson Conversation Service** is used to reuse **generated Token** to get the workspace information.
 
 ## Usage
@@ -14,7 +14,7 @@ In this sample the **Watson Conversation Service** is used to reuse **generated 
 5. Call the local URL **http://localhost:8080/usetoken**
 6. Now you should see your workspace information
 
-Inside this Server the Token is stored in the variable **token_to_use** and this token will be used for the hard coded sample URL defined in the variables **thePath_URL = theProtocoll + theHost + wcs_action_url + wcs_version_date;**.
+_NOTE:_ Inside this Token Server the Token is stored in the variable called **token_to_use** and this token will be used for the hard coded sample URL defined in the variables **thePath_URL = theProtocoll + theHost + wcs_action_url + wcs_version_date;** for a Watson Conversation get workspaces command.
 
 ## Running locally
 
